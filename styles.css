@@ -1,0 +1,136 @@
+body{
+   background-color: rgb(204, 21, 21); 
+}
+.logo{
+    
+text-align: center;
+color: white;
+}
+.logo img{
+    margin-top: 15px;
+    width: 200px;
+    height: 150px;
+}
+.logo h1{
+    margin-bottom: -10px;  
+}
+.logo h2{
+    color: rgb(134, 124, 124);
+    font-size:18px;
+}
+.masuk h3{
+    color: white;
+    text-align: center;
+}
+.masuk span{
+    text-align: center;
+}
+.masuk .button-anggota{
+   
+    border-radius: 10%;
+    width: 130px;
+    height: 100px;
+    box-shadow: 1px 10px 5px black;
+    background-color: green;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    position: absolute;
+}
+ .masuk img{
+  
+    margin-top: -10px;
+    width: 50px;
+
+}
+.masuk .button-anggota span{
+    position: absolute;
+    bottom: 5px;
+    left: 0;       
+    right: 0;      
+    margin: auto; 
+}
+
+.masuk #admin span{
+    position: absolute;
+    bottom: 5px;
+    left: 0;       
+    right: 0;     
+    margin: auto; 
+}
+.masuk #admin{
+   
+    border-radius: 10%;
+    width: 110px;
+    height: 100px;
+    box-shadow: 1px 10px 5px black;
+    background-color: blue;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    align-items: center;
+    display: flex;
+}
+.container{
+    
+    margin: auto;
+    width: 50%;
+    height: 150px;
+align-content: center;
+position: relative;
+
+}
+a{
+    margin-top: 50px;
+  margin-left:40% ;
+    color: white;
+    text-decoration: none;
+}
+.daftar h5{
+    margin-bottom: -10px;
+    margin-left:40% ;
+    color: white;
+    text-decoration: none;
+}
+
+#daftar{
+    margin-top:10px ;
+    color: white;
+    background-color: rgb(11, 148, 240);
+    box-shadow: 1px 10px 5px black;
+    border-radius: 10%;
+    width: 130px;
+    height: 40px;
+    margin-left:40% ;
+display: block;
+cursor: pointer;
+}
+footer{
+    text-align: center;
+}
+footer h5{
+    display: inline;
+  
+    font-weight: 200;
+    color: white;
+  
+}
+footer span{
+ 
+  
+  
+    color: white;
+    font-weight: bold;
+
+}
