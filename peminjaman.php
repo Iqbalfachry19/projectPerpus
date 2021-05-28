@@ -1,7 +1,7 @@
 <?php
 $thisPage = "Peminjaman";
 session_start();
-$user = $_SESSION['username'];
+
 if (!isset($_SESSION['username'])) {
     header("Location:index.php");
     exit;
@@ -15,7 +15,7 @@ if (isset($_SESSION['level'])) {
         header('location:halaman_anggota.php');
     }
 }
-
+$user = $_SESSION['username'];
 require "functions.php";
 if (isset($_GET['id'])) {
     $id = $_GET['id']; // Getting parameter value inside PHP variable

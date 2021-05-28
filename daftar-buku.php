@@ -2,7 +2,7 @@
 require "functions.php";
 $thisPage = "Daftar Buku";
 session_start();
-$user = $_SESSION['username'];
+
 if (!isset($_SESSION['username'])) {
     header("Location:index.php");
     exit;
@@ -16,7 +16,7 @@ if (isset($_SESSION['level'])) {
         header('location:halaman_anggota.php');
     }
 }
-
+$user = $_SESSION['username'];
 
 
 if (isset($_GET['id'])) {
