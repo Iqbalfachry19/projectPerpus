@@ -34,28 +34,7 @@ require "functions.php";
 
 
 
-    <div class="navbar">
-
-        <a <?php if ($thisPage == "Halaman Admin") echo "class='active'"; ?> href="halaman_admin.php">Beranda</a>
-        <a <?php if ($thisPage == "Daftar Anggota") echo "class='active'"; ?> href="daftar-anggota.php">Daftar Anggota</a>
-        <a <?php if ($thisPage == "Daftar Buku") echo "class='active'"; ?>href="daftar-buku.php">Daftar Buku</a>
-        <a <?php if ($thisPage == "Peminjaman") echo "class='active'"; ?> href="peminjaman.php">Peminjaman</a>
-        <a <?php if ($thisPage == "Pengembalian") echo "class='active'"; ?> href="pengembalian.php">Pengembalian</a>
-        <a <?php if ($thisPage == "Laporan") echo "class='active'"; ?> href="laporan.php">Laporan</a>
-        <a <?php if ($thisPage == "Chat") echo "class='active'"; ?> href="chat.php">Chat</a>
-        <div class="right">
-            <div class="dropdown"> <button class="dropbtn" onclick="myFunction()"> <?=
-                                                                                    $user; ?> <i id="icon" class="fa fa-caret-down"></i></button>
-                <div class="dropdown-content" id="myDropdown">
-                    <a href="logout.php" onclick="return confirm('yakin?');">Logout</a>
-                    <a href="pengaturan.php">Pengaturan</a>
-
-                </div>
-            </div>
-        </div>
-
-
-    </div>
+<?php include 'template/navbar.php'; ?>
     <h1><?php echo $thisPage; ?></h1>
 
     <p>disini anda bisa lihat Laporan</p>

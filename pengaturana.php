@@ -42,7 +42,7 @@ if (isset($_SESSION['level'])) {
     <h1><?php echo $thisPage; ?></h1>
 
     <p>Halo <b><?php echo $_SESSION['username']; ?></b> Anda telah login sebagai <b><?php echo $_SESSION['level']; ?></b>.</p>
-    <center><a href="ubah-a.php?id=<?php
+    <center><a style="text-decoration:none" class="btn btn-info" href="ubah-a.php?id=<?php
                                     echo $_SESSION['user_id'];
                                     ?>">Ubah data user</a></center>
     <div class="footer">
