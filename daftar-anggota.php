@@ -1,7 +1,9 @@
 <?php
-$thisPage = "Daftar Anggota";
 session_start();
-$user = $_SESSION['username'];
+require "functions.php";
+$thisPage = "Daftar Anggota";
+
+
 if (!isset($_SESSION['username'])) {
     header("Location:index.php");
     exit;
@@ -16,14 +18,15 @@ if (isset($_SESSION['level'])) {
     }
 }
 
-require "functions.php";
+
+$user = $_SESSION['username'];
 
 
 if (isset($_GET['id'])) {
     $id = $_GET['id']; // Getting parameter value inside PHP variable
     $mahasiswa = query("select * from user where level='anggota' && username ='$id'");
 } else {
-    $mahasiswa = query("select * from user where level='anggota'");
+    $mahasiswa = query("select * from user where level='anggota' ");
 }
 
 if (isset($_POST["cari"])) {
@@ -41,8 +44,7 @@ if (isset($_POST["cari"])) {
     <link rel="stylesheet" href="style_tab.css">
     <link rel="icon" href="favicon.ico" type="image/ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
+  </head>
 
 <body>
     <?php

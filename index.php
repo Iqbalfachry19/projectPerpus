@@ -44,7 +44,7 @@ if (isset($_SESSION['username'])) {
             <h3  data-aos="fade-up"  data-aos-duration="1000">MASUK SEBAGAI :</h3><a href=" admin-login">
 
                 <button data-aos="fade-up"  data-aos-duration="1000" id="admin"> <img src="img/administrator-512.png" alt=""><span>ADMIN</span></button>
-            </a><a href=" anggota-login">
+            </a><a href=" anggota-login"> 
                 <button data-aos="fade-up"  data-aos-duration="1000" class="button-anggota"> <img src="img/pngfind.com-profile-icon-png-1102927.png" alt=""><span>ANGGOTA</span></button>
             </a>
         </div>
