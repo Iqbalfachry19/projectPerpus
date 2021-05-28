@@ -35,25 +35,33 @@ function upload()
     $error = $_FILES['sampul']['error'];
     $tmpName = $_FILES['sampul']['tmp_name'];
     if ($error === 4) {
-        echo "<t>
+        echo "<script>
 alert('pilih gambar terlebih dahulu');
-    </t>";
+    </script>
+    <a  style='display:flex;  justify-content:center;' href='javascript:history.go(-1)'>kembali</a>
+    "
+    ;
         return false;
     }
     $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
     $ekstensiGambar = explode('.', $namaFile);
     $ekstensiGambar = strtolower(end($ekstensiGambar));
     if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-        echo "<t>
+        echo "<script>
         alert('yang anda upload bukan gambar');
-            </t>";
+            </script>
+            <a  style='display:flex;  justify-content:center;' href='javascript:history.go(-1)'>kembali</a>
+            "
+            ;
         return false;
     }
 
     if ($ukuranFile > 1000000) {
-        echo "<t>
+        echo "<script>
     alert('ukuran gambar terlalu besar');
-        </t>";
+        </script>
+        <a  style='display:flex;  justify-content:center;' href='javascript:history.go(-1)'>kembali</a>
+        ";
         return false;
     }
     $namaFileBaru = uniqid();
