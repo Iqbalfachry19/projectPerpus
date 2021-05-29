@@ -1,11 +1,12 @@
 <?php
 $thisPage = "Daftar Buku";
 session_start();
-$user = $_SESSION['username'];
+
 if (!isset($_SESSION['username'])) {
     header("Location:index.php");
     exit;
 }
+$user = $_SESSION['username'];
 require "functions.php";
 if (isset($_SESSION['level'])) {
     // jika level admin

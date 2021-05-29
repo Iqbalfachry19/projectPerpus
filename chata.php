@@ -1,11 +1,12 @@
 <?php
 $thisPage = "Chat";
 session_start();
-$user = $_SESSION['username'];
+
 if (!isset($_SESSION['user_id'])) {
     header('location:index.php');
     exit;
 }
+$user = $_SESSION['username'];
 require "functions.php";
 if (isset($_SESSION['level'])) {
     // jika level admin

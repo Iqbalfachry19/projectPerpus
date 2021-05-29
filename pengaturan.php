@@ -1,11 +1,12 @@
 <?php
 $thisPage = "Pengaturan";
 session_start();
-$user = $_SESSION['username'];
+
 if (!isset($_SESSION['username'])) {
     header("Location:index.php");
     exit;
 }
+$user = $_SESSION['username'];
 if (isset($_SESSION['level'])) {
     // jika level admin
     if ($_SESSION['level'] == "admin") {
