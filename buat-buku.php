@@ -46,13 +46,13 @@ if (isset($_POST['submit'])) {
             <label for="judul" name="judul">Judul</label>
             <input required="required" placeholder="masukkan judul" class="form_login_nama" type="text" name="judul" id="judul">
             <label for="penulis" name="penulis">Penulis</label>
-            <input placeholder="masukkan penulis" class="form_login_nama" type="text" name="penulis" id="penulis">
+            <input required="required" placeholder="masukkan penulis" class="form_login_nama" type="text" name="penulis" id="penulis">
             <label for="penerbit" name="penerbit">Penerbit</label>
-            <input placeholder="masukkan penerbit" class="form_login_nama" style="display:block;" type="text" name="penerbit" id="penerbit">
+            <input required="required" placeholder="masukkan penerbit" class="form_login_nama" style="display:block;" type="text" name="penerbit" id="penerbit">
             <label for="jumlah" name="jumlah">Jumlah Buku</label>
-            <input placeholder="masukkan jumlah" class="form_login_nama" style="display:block;" type="text" name="jumlah" id="jumlah">
+            <input required="required" placeholder="masukkan jumlah" class="form_login_nama" style="display:block;" type="text" name="jumlah" id="jumlah">
             <label for="kategori" name="kategori">Kategori</label>
-            <input placeholder="masukkan kategori" class="form_login_nama" style="display:block;" type="text" name="kategori" id="kategori">
+            <input required="required" placeholder="masukkan kategori" class="form_login_nama" style="display:block;" type="text" name="kategori" id="kategori">
             <label for="sampul" name="sampul">Sampul</label>
             <p><img id="output" width="100" /></p>
             <input  onchange="loadFile(event)"  class="form_login_nama" type="file" name="sampul" id="sampul">
