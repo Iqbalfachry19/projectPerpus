@@ -33,6 +33,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/ico">
     <link rel="stylesheet" href="styless.css">
     <title>Buat Buku</title>
 </head>
@@ -53,7 +54,8 @@ if (isset($_POST['submit'])) {
             <label for="kategori" name="kategori">Kategori</label>
             <input placeholder="masukkan kategori" class="form_login_nama" style="display:block;" type="text" name="kategori" id="kategori">
             <label for="sampul" name="sampul">Sampul</label>
-            <input class="form_login_nama" type="file" name="sampul" id="sampul">
+            <p><img id="output" width="100" /></p>
+            <input  onchange="loadFile(event)"  class="form_login_nama" type="file" name="sampul" id="sampul">
             <button class="tombol_login" type="submit" name="submit">Buat</button>
 
             <br />
@@ -64,6 +66,12 @@ if (isset($_POST['submit'])) {
         </form>
 
     </div>
+    <script>
+    var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+    </script>
 </body>
 
 </html>
