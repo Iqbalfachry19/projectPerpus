@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
             <label for="penerbit" name="penerbit">Penerbit</label>
             <input value="<?= $row["penerbit"]; ?>" class="form_login_nama" style="display:block;" type="text" name="penerbit" id="penerbit">
             <label for="jumlah" name="jumlah">Jumlah Buku</label>
-            <input value="<?= $row["jumlah"]; ?>" class="form_login_nama" style="display:block;" type="text" name="jumlah" id="jumlah">
+            <input value="<?= $row["jumlah"]; ?>" class="form_login_nama" style="display:block;" type="number" name="jumlah" id="jumlah">
             <label for="kategori" name="kategori">Kategori</label>
             <input value="<?= $row["kategori"]; ?>" class="form_login_nama" style="display:block;" type="text" name="kategori" id="kategori">
             <label style="display:block;" for="sampul" name="sampul">Sampul</label>
