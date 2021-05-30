@@ -17,6 +17,14 @@ if (isset($_SESSION['level'])) {
         header('location:halaman_anggota.php');
     }
 }
+$sql=mysqli_query($conn,"select count(username) from user where level = 'anggota'");
+$r=mysqli_fetch_row($sql);
+$sql=mysqli_query($conn,"select count(judul) from daftar_buku ");
+$r1=mysqli_fetch_row($sql);
+$sql=mysqli_query($conn,"select count(username) from pinjam where kt = 'sudah konfirmasi' ");
+$r2=mysqli_fetch_row($sql);
+$sql=mysqli_query($conn,"select count(username) from kembali where keterangan = 'sudah konfirmasi' ");
+$r3=mysqli_fetch_row($sql);
 
 $user = $_SESSION['username'];
 ?>
@@ -39,7 +47,17 @@ $user = $_SESSION['username'];
             font-weight: bold;
             border-radius: 10px;
         }
-
+        .box-300 {
+            width: 300px;
+            height: auto;
+            border: 2px solid #000;
+            margin: 0 auto 15px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: flex;
+        }
         .info {
             background-color: #ddd;
             border-color: #aaa;
@@ -73,6 +91,45 @@ $user = $_SESSION['username'];
             <li style="padding-right: 70px;">lama peminjaman 7 hari</li>
         </ol>
 
+    </div>
+    <div class="container" style="display:flex; justify-content:space-between">
+    <div class="info box-300" style="justify-content:space-between">
+    <div style="display:flex; ">
+    <img src="img/orang.svg" style="width:50px;"/>
+    </div>
+    <div style="display:flex;   flex-direction:column ">
+  <p><?= $r[0]; ?></p>
+  <p>total anggota</p>
+    </div>
+    </div>
+    
+    <div class="info box-300" style="justify-content:space-between">
+    <div style="display:flex; ">
+    <img src="img/book.svg" style="width:50px;"/>
+    </div>
+    <div style="display:flex;   flex-direction:column ">
+  <p><?= $r1[0]; ?></p>
+  <p>total buku</p>
+    </div>
+    </div>
+    <div class="info box-300" style="justify-content:space-between">
+    <div style="display:flex; ">
+    <img src="img/pinjam.svg" style="width:50px;"/>
+    </div>
+    <div style="display:flex;  flex-direction:column ">
+  <p><?= $r2[0]; ?></p>
+  <p>total peminjaman</p>
+    </div>
+    </div>
+    <div class="info box-300" style="justify-content:space-between">
+    <div style="display:flex; ">
+    <img src="img/balik.svg" style="width:50px;"/>
+    </div>
+    <div style="display:flex;  flex-direction:column ">
+  <p><?= $r3[0]; ?></p>
+  <p>total pengembalian</p>
+    </div>
+    </div>
     </div>
     <?php include 'template/footer.php'; ?>
     <script src="script.js">
