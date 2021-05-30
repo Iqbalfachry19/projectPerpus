@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_GET['id'])){
+    header('Location: daftar-buku.php',true,301); 
+    exit();
+}
 if (!isset($_SESSION["username"])) {
     header("Location: index.php");
     exit;
