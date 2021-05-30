@@ -1,7 +1,13 @@
 <?php
 require 'functions.php';
 
+
+if (!isset($_GET['id'])){
+    header('Location: daftar-buku.php',true,301); 
+    exit();
+}
 $id = $_GET["id"];
+
 $row = query("select * from daftar_buku where id = $id")[0];
 if (isset($_POST['submit'])) {
     $judul = $_POST["judul"];

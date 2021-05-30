@@ -1,6 +1,11 @@
 <?php
 require 'functions.php';
 
+
+if (!isset($_GET['id'])){
+    header('Location: pengaturan.php',true,301); 
+    exit();
+}
 $id = $_GET["id"];
 $row = query("select * from user where id = $id")[0];
 
