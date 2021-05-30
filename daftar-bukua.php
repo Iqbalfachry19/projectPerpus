@@ -20,6 +20,7 @@ if (isset($_SESSION['level'])) {
 $page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
    
 $kolomCari=(isset($_GET['Kolom']))? $_GET['Kolom'] : "";
+$kolomId=(isset($_GET['id']))? $_GET['id'] : "";
 
 $kolomKataKunci=(isset($_GET['KataKunci']))? $_GET['KataKunci'] : "";
 $limit = 2;
@@ -317,12 +318,17 @@ $endNumber = ($page < ($jumlahPage - $jumlahNumber))? $page + $jumlahNumber : $j
 for($i = $startNumber; $i <= $endNumber; $i++){
 $linkActive = ($page == $i)? ' class="active page-item"' : '';
 
-if($kolomCari=="" && $kolomKataKunci==""){
-?>
-<li<?php echo $linkActive; ?>><a class="page-link" href="daftar-bukua.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+if(isset($_GET['id'])){if($kolomId==$id){
+  ?>
+  <li<?php echo $linkActive; ?>><a class="page-link" href="daftar-bukua.php?id=<?php echo $id; ?>"><?php echo $i; ?></a></li>
 
 <?php
-}else{
+} if($kolomCari=="" && $kolomKataKunci==""&& $kolomId==""){
+  ?>
+      <li<?php echo $linkActive; ?>><a class="page-link" href="daftar-bukua.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+  
+  <?php
+    }}else{
 ?>
 <li<?php echo $linkActive; ?>><a class="page-link" href="daftar-bukua.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 <?php
