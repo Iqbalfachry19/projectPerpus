@@ -7,7 +7,7 @@ text-align: center;
 color: white;
 }
 .logo img{
-    margin-top: 15px;
+ 
     width: 200px;
     height: 150px;
 }
@@ -18,12 +18,21 @@ color: white;
     color: rgb(134, 124, 124);
     font-size:18px;
 }
-.masuk h3{
+h3{
     color: white;
     text-align: center;
 }
+.masuk button p{
+    display: flex;
+}
 .masuk span{
+    display: flex;
+    flex-direction: column;
     text-align: center;
+}
+.masuk{
+    display: flex;
+
 }
 .masuk .button-anggota{
    
@@ -33,87 +42,82 @@ color: white;
     box-shadow: 1px 10px 5px black;
     background-color: green;
     color: white;
-    padding: 14px 28px;
+   margin: 25px;
     font-size: 16px;
     cursor: pointer;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+
+display: flex;
+flex-direction: column;
+
     align-items: center;
-    position: absolute;
 }
- .masuk img{
-  
-    margin-top: -10px;
+ .masuk img.img-admin{
+margin-top: 20px;
     width: 50px;
 
 }
+.masuk img.img-anggota{
+    margin-top: 8px;
+        width: 45px;
+    
+    }
 .masuk .button-anggota span{
-    position: absolute;
-    bottom: 5px;
-    left: 0;       
-    right: 0;      
-    margin: auto; 
+   display: flex;
+      
+
 }
 
-.masuk #admin span{
-    position: absolute;
-    bottom: 5px;
-    left: 0;       
-    right: 0;     
-    margin: auto; 
+.masuk.button-admin span{
+    display: flex;
 }
-.masuk #admin{
-   
+.masuk .button-admin{
     border-radius: 10%;
-    width: 110px;
+    width: 130px;
     height: 100px;
     box-shadow: 1px 10px 5px black;
     background-color: blue;
     color: white;
-    padding: 14px 28px;
+    margin: 25px;
     font-size: 16px;
     cursor: pointer;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 30%;
+    justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
 }
 .container{
     
-    margin: auto;
-    width: 50%;
-    height: 150px;
-align-content: center;
-position: relative;
+justify-content: center;
+display: flex;
 
 }
+.daftar{
+    display: flex;
+    flex-direction: column;
+}
 a{
-    margin-top: 50px;
-  margin-left:40% ;
+
     color: white;
     text-decoration: none;
 }
 .daftar h5{
-    margin-bottom: -10px;
-    margin-left:40% ;
+display: flex;
     color: white;
     text-decoration: none;
+    justify-content: center;
 }
 
 #daftar{
-    margin-top:10px ;
+align-items: center;
+justify-content: center;
     color: white;
     background-color: rgb(11, 148, 240);
     box-shadow: 1px 10px 5px black;
     border-radius: 10%;
     width: 130px;
     height: 40px;
-    margin-left:40% ;
-display: block;
+    
+display:flex;
 cursor: pointer;
 }
 footer{

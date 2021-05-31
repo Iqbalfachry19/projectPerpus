@@ -39,24 +39,25 @@ if (isset($_SESSION['username'])) {
         <h1 class="judulawal" data-aos="fade-up" data-aos-duration="1000">DIGITAL PERPUS</h1>
         <h2  class="juduldua"data-aos="fade-up" data-aos-duration="1000">KELURAHAN SIMPANG BARU</h2>
     </div>
+    <h3  data-aos="fade-up"  data-aos-duration="1000">MASUK SEBAGAI :</h3>
     <div class="container">
-        <div class="masuk">
-            <br>
-            <h3  data-aos="fade-up"  data-aos-duration="1000">MASUK SEBAGAI :</h3><a href=" admin-login">
-
-                <button data-aos="fade-up"  data-aos-duration="1000" id="admin"> <img src="img/administrator-512.png" alt=""><span>ADMIN</span></button>
-            </a><a href=" anggota-login"> 
-                <button data-aos="fade-up"  data-aos-duration="1000" class="button-anggota"> <img src="img/pngfind.com-profile-icon-png-1102927.png" alt=""><span>ANGGOTA</span></button>
+        <div class="masuk" >
+           
+        <a href=" admin-login">
+                <button data-aos="fade-up"  data-aos-duration="1000" class="button-admin">  <img class="img-admin" src="img/administrator-512.png" alt=""><p>ADMIN</p></button>
+                </button>  </a><a href=" anggota-login"> 
+                <button data-aos="fade-up"  data-aos-duration="1000" class="button-anggota"> <img class="img-anggota" src="img/pngfind.com-profile-icon-png-1102927.png" alt=""><p>ANGGOTA</p></button>
             </a>
         </div>
-    </div>
-    <div class="container">
+        </div>
+       
+        <div class="container">
         <div class="daftar">
-            <br><br><br>
-            <h5 data-aos="fade-up"  data-aos-duration="1000">Belum Punya Akun?</h5>
-            <a  href="daftar.php"><button data-aos="fade-up"  data-aos-duration="1000" id="daftar"><Span>DAFTAR</Span></button></a>
+        <h5 data-aos="fade-up"  data-aos-duration="1000">Belum Punya Akun?</h5>
+            <a  href="daftar.php"><button data-aos="fade-up"  data-aos-duration="1000" id="daftar"><p>DAFTAR</p></button></a>
         </div>
     </div>
+   
     <footer data-aos="fade-up"  data-aos-duration="1000">
         <br><br>
         <span>IQBALFACHRY<span>
