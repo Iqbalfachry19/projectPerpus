@@ -95,6 +95,12 @@ function hapus($id)
 function hapusbuku($id)
 {
     global $conn;
+    $mysql=mysqli_query($conn,"select * from daftar_buku where id = $id");
+    $r=mysqli_fetch_row($mysql);
+    $target = "img/$r[4]";
+    if (file_exists($target)){
+unlink($target);
+    }
     mysqli_query($conn, "delete from daftar_buku where id = $id");
     return mysqli_affected_rows($conn);
 }
@@ -145,6 +151,12 @@ function ubah($data)
         $gambar = $gambarLama;
     } else {
         $gambar = upload();
+    }
+    $mysql=mysqli_query($conn,"select * from daftar_buku where id = $id");
+    $r=mysqli_fetch_row($mysql);
+    $target = "img/$r[4]";
+    if (file_exists($target)){
+unlink($target);
     }
 
     $query = "update daftar_buku set judul = '$nrp', penerbit = '$nama', penulis = '$email', sampul = '$gambar', kategori='$kategori', jumlah = $jumlah where id = $id";
