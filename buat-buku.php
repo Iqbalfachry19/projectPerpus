@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
             <label for="penerbit" name="penerbit">Penerbit</label>
             <input required="required" placeholder="masukkan penerbit" class="form_login_nama" style="display:block;" type="text" name="penerbit" id="penerbit">
             <label for="jumlah" name="jumlah">Jumlah Buku</label>
-            <input required="required" placeholder="masukkan jumlah" class="form_login_nama" style="display:block;" type="number" name="jumlah" id="jumlah">
+            <input min="0" required="required" placeholder="masukkan jumlah" class="form_login_nama" style="display:block;" type="number" name="jumlah" id="jumlah">
             <label for="kategori" name="kategori">Kategori</label>
             <input required="required" placeholder="masukkan kategori" class="form_login_nama" style="display:block;" type="text" name="kategori" id="kategori">
             <label for="sampul" name="sampul">Sampul</label>

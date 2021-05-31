@@ -86,6 +86,7 @@ if (isset($_SESSION['level'])) {
                 <td class="aksi">
                     <a style="text-decoration: none;" class="btn btn-info" href="kembali.php?id=<?= $row["kode_pinjam"]; ?>&user=<?= $user; ?>&buku=<?= $row["id_buku"]; ?>&tgl=<?= $row["tanggal_hrskembali"]; ?>" onclick="return confirm('yakin?');">kembalikan</a>
                     <a style="text-decoration: none;" class="btn btn-warning" href="perpanjang.php?id=<?= $row["kode_pinjam"]; ?>&user=<?= $user; ?>&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('yakin?');">perpanjang</a>
+                    <a style="text-decoration: none;" class="btn btn-danger" href="cancel.php?id=<?= $row["kode_pinjam"]; ?>&&user=<?= $row["username"]; ?>&&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('apa mau dicancel?');">cancel</a>
 
                 </td>
             </tr>

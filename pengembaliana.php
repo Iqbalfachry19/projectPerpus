@@ -62,6 +62,7 @@ if (isset($_SESSION['level'])) {
             <th>tanggal kembali</th>
             <th>denda</th>
             <th>keterangan</th>
+            <th>Aksi</th>
         </tr>
         <?php
         $i = 1;
@@ -86,6 +87,10 @@ if (isset($_SESSION['level'])) {
                     $row["denda"]; ?></td>
                 <td><?=
                     $row["keterangan"]; ?></td>
+                   <td class="aksi">
+                   <a style="text-decoration: none;" class="btn btn-danger" href="cancelb.php?idp=<?= $row["id_pinjam"]; ?>&&id=<?= $row["id_kembali"]; ?>&&user=<?= $row["username"]; ?>&&denda=<?= $row["denda"]; ?>&&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('apa mau dicancel?');">cancel</a>
+
+                   </td> 
             </tr>
             <?php
             $i++;
