@@ -29,13 +29,13 @@ if (isset($_SESSION['username'])) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/ico">
 
-    <title>Perpustakaan</title>
+    <title>Digital Perpus</title>
 </head>
 
 <body style=" overflow: hidden; ">
     <div class="logo">
         <img data-aos="fade-down"  data-aos-duration="1000" src="img/books-stack-of-three_1.png">
-        <h1 class="judulawal" data-aos="fade-up" data-aos-duration="1000">PERPUSTAKAAN</h1>
+        <h1 class="judulawal" data-aos="fade-up" data-aos-duration="1000">DIGITAL PERPUS</h1>
         <h2  class="juduldua"data-aos="fade-up" data-aos-duration="1000">KELURAHAN SIMPANG BARU</h2>
     </div>
     <div class="container">
