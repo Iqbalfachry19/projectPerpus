@@ -8,8 +8,7 @@ require 'functions.php';
 $id = $_GET["id"];
 $idb =  $_GET["buku"];
 if (cancelb($id) > 0) {
-    $query = "update daftar_buku set jumlah = jumlah - 1 where id ='$idb'";
-    mysqli_query($conn, $query);
+ 
     if($_SESSION['level']=="admin"){
     echo "<script>
     alert('data berhasil dicancel');
