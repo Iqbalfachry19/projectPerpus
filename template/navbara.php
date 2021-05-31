@@ -1,5 +1,5 @@
 <div class="navbar">
-<a   href="#" style="display:flex;"> DIGITAL PERPUS</a><a   href="#" style="display:flex;"> DIGITAL PERPUS</a>
+<a   href="#" style="display:flex;"> DIGITAL PERPUS</a>
         <a <?php if ($thisPage == "Halaman Anggota") echo "class='active'"; ?> href="halaman_anggota.php"  style="display:flex;"> <img src="img/home.svg" style="margin-right:10px; align-items: center; display:flex;"  />Beranda</a>
         <a <?php if ($thisPage == "Daftar Buku") echo "class='active'"; ?>href="daftar-bukua.php" style="display:flex;"> <img src="img/book.svg" style="margin-right:10px; align-items: center; display:flex;"  />Daftar Buku</a>
         <a <?php if ($thisPage == "Peminjaman") echo "class='active'"; ?> href="peminjamana.php" style="display:flex;"> <img src="img/pinjam.svg" style="margin-right:10px; align-items: center; display:flex;"  />Peminjaman</a>
