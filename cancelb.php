@@ -29,7 +29,7 @@ if (cancelb($id) > 0) {
     </script>
     ";}else{
         echo "<script>
-        alert('data berhasil dicancel');
+        alert('sudah konfirmasi tidak bisa cancel');
         document.location.href ='pengembaliana.php';
         </script>    
         "; }
