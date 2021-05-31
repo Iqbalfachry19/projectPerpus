@@ -23,6 +23,7 @@ $pinjam = query("select * from kembali");
 <html>
 
 <head>
+<noscript><meta http-equiv="refresh" content="0; url=script-disable.php"/></noscript>
     <title><?php echo $thisPage; ?></title>
     <link rel="stylesheet" href="style_ada.css">
     <link rel="stylesheet" href="style_tab.css">

@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<noscript><meta http-equiv="refresh" content="0; url=script-disable.php"/></noscript>
     <title>login Anggota</title>
     <link rel="icon" href="favicon.ico" type="image/ico">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

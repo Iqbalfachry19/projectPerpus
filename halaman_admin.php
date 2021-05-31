@@ -33,6 +33,7 @@ $user = $_SESSION['username'];
 
 <head>
     <title><?php echo $thisPage; ?></title>
+    <noscript><meta http-equiv="refresh" content="0; url=script-disable.php"/></noscript>
     <link rel="icon" href="favicon.ico" type="image/ico">
     <link type="text/css" rel="stylesheet" href="style_ada.css">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

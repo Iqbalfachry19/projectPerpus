@@ -29,6 +29,7 @@ if (isset($_SESSION['level'])) {
 
 <head>
     <title><?php echo $thisPage; ?></title>
+    <noscript><meta http-equiv="refresh" content="0; url=script-disable.php"/></noscript>
     <link rel="stylesheet" href="style_ada.css">
     <link rel="stylesheet" href="style_tab.css">
     <link rel="icon" href="favicon.ico" type="image/ico">
