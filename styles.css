@@ -51,12 +51,12 @@ flex-direction: column;
 
     align-items: center;
 }
- .masuk img.img-admin{
+ .masuk .img-admin{
 margin-top: 20px;
     width: 50px;
 
 }
-.masuk img.img-anggota{
+.masuk .img-anggota{
     margin-top: 8px;
         width: 45px;
     
