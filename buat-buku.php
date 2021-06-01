@@ -54,8 +54,8 @@ if (isset($_POST['submit'])) {
             <label for="kategori" name="kategori">Kategori</label>
             <input required="required" placeholder="masukkan kategori" class="form_login_nama" style="display:block;" type="text" name="kategori" id="kategori">
             <label for="sampul" name="sampul">Sampul</label>
-            <p><img id="output" width="100" /></p>
-            <input  onchange="loadFile(event)"  class="form_login_nama" type="file" name="sampul" id="sampul">
+            <p><img id="image-preview"  width="100px" /></p>
+            <input  onchange="previewImage();"  class="form_login_nama" type="file" name="sampul" id="sampul">
             <button class="tombol_login" type="submit" name="submit">Buat</button>
 
             <br />
@@ -67,10 +67,15 @@ if (isset($_POST['submit'])) {
 
     </div>
     <script>
-    var loadFile = function(event) {
-	var image = document.getElementById('output');
-	image.src = URL.createObjectURL(event.target.files[0]);
-};
+      function previewImage() {
+    document.getElementById("image-preview").style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("sampul").files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("image-preview").src = oFREvent.target.result;
+    };
+  };
     </script>
 </body>
 
