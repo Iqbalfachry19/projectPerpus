@@ -87,7 +87,9 @@ video {
 .juduldua{
   font-size: large;
 }
-
+body{
+  overflow-x: hidden;
+}
 .navbar {
   overflow: hidden;
   background-color: #FF0000;
@@ -108,7 +110,7 @@ video {
 
 .dropdown {
   float: left;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .dropdown .dropbtn {
