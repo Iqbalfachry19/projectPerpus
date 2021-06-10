@@ -15,9 +15,33 @@ if (isset($_SESSION['level'])) {
         header('location:halaman_anggota.php');
     }
 }
-$user = $_SESSION['username'];
+
 require "functions.php";
-$pinjam = query("select * from kembali");
+$page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
+   
+$kolomCari=(isset($_GET['Kolom']))? $_GET['Kolom'] : "";
+$kolomId=(isset($_GET['id']))? $_GET['id'] : "";
+
+$kolomKataKunci=(isset($_GET['KataKunci']))? $_GET['KataKunci'] : "";
+$limit = 5;
+    
+$limitStart = ($page - 1) * $limit;
+$no = $limitStart + 1;
+$user = $_SESSION['username'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id']; // Getting parameter value inside PHP variable
+    $SqlQuery = query("select * from kembali where id_kembali ='$id'  LIMIT " .$limitStart.",".$limit);
+} else {
+    if($kolomCari=="" && $kolomKataKunci==""){
+        $SqlQuery = mysqli_query($conn, "SELECT * FROM kembali LIMIT ".$limitStart.",".$limit);
+      }else{
+        //kondisi jika parameter kolom pencarian diisi
+        $SqlQuery = mysqli_query($conn, "SELECT * FROM kembali WHERE  $kolomCari LIKE '%$kolomKataKunci%' LIMIT ".$limitStart.",".$limit);
+      }
+
+  
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,6 +73,37 @@ $pinjam = query("select * from kembali");
     <h1><?php echo $thisPage; ?></h1>
 
     <p> disini anda bisa melihat pengembalian</p>
+    <div class="row">
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading"><b>Pencarian</b></div>
+        <div class="panel-body">
+          <form class="form-inline" >
+            <div class="form-group">
+              <select class="form-control" id="Kolom" name="Kolom" required="">
+                <?php
+                  $kolom=(isset($_GET['Kolom']))? $_GET['Kolom'] : "";
+                ?>
+                 <option value="id_pinjam" <?php if ($kolom=="id_pinjam") echo "selected"; ?>>id pinjam</option>
+                <option value="Username" <?php if ($kolom=="Username") echo "selected"; ?>>Username</option>
+                <option value="id_buku" <?php if ($kolom=="id_buku") echo "selected";?>>id buku</option>
+                <option value="tanggal_pinjam" <?php if ($kolom=="tanggal_pinjam") echo "selected";?>>tanggal harus kembali</option>
+              
+                <option value="tanggal_kembali" <?php if ($kolom=="tanggal_kembali") echo "selected";?>>tanggal kembali</option>
+                <option value="denda" <?php if ($kolom=="denda") echo "selected";?>>denda</option>
+                  <option value="keterangan" <?php if ($kolom=="keterangan") echo "selected";?>>keterangan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="KataKunci" name="KataKunci" placeholder="Kata kunci.." required="" value="<?php if (isset($_GET['KataKunci']))  echo $_GET['KataKunci']; ?>">
+            </div>
+            <button type="submit" class="btn btn-primary">Cari</button>
+            <a href="pengembalian.php" class="btn btn-danger">Reset</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
     <table id="customers">
         <tr>
             <th>No</th>
@@ -62,14 +117,11 @@ $pinjam = query("select * from kembali");
             <th class="aksi">Aksi</th>
         </tr>
         <?php
-        $i = 1;
-        ?>
-        <?php
-        foreach ($pinjam as $row) :
+        foreach ($SqlQuery as $row) :
         ?>
             <tr>
                 <td><?=
-                    $i; ?></td>
+                    $no++; ?></td>
                 <td><a href="peminjaman.php?id=<?=
                                                 $row["id_pinjam"]; ?>"><?=
                                                                         $row["id_pinjam"]; ?></a></td>
@@ -91,16 +143,234 @@ $pinjam = query("select * from kembali");
 
                 </td>
             </tr>
-            <?php
-            $i++;
-            ?>
         <?php
         endforeach;
-        ?>
+        ?><?php if (isset($_GET["KataKunci"])) {
+            if (mysqli_num_rows($SqlQuery) == 0) {
+                $error = "no data";
+        ?></tr>
+    <td colspan='9'><?=
+                    $error; ?></td>
+    </tr>
+<?php } else{
+     ?></table>
+
+     <div align="right" style="margin-bottom: 100px;">
+   <ul class="pagination justify-content-center " >
+     <?php
+       // Jika page = 1, maka LinkPrev disable
+       if($page == 1){ 
+     ?>        
+       <!-- link Previous Page disable --> 
+       <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+     <?php
+       }
+       else{ 
+         $LinkPrev = ($page > 1)? $page - 1 : 1;  
+ 
+         if($kolomCari=="" && $kolomKataKunci==""){
+         ?>
+           <li class="page-item"><a class="page-link" href="pengembalian.php?page=<?php echo $LinkPrev; ?>">Previous</a></li>
+      <?php     
+         }else{
+       ?> 
+         <li class="page-item"><a class="page-link" href="pengembalian.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $LinkPrev;?>">Previous</a></li>
+        <?php
+          } 
+       }
+     ?>
+ 
+     <?php
+    if (isset($_GET['id'])) {
+     $id = $_GET['id']; // Getting parameter value inside PHP variable
+     
+      $SqlQuery = mysqli_query($conn,"select * from kembali where id_kembali ='$id' LIMIT " .$limitStart.",".$limit);
+ } else {
+ 
+ 
+     
+     // Jumlah data per halaman
+ 
+     
+     if($kolomCari=="" && $kolomKataKunci==""){
+         $SqlQuery = mysqli_query($conn, "SELECT * FROM kembali ");
+       }else{
+         //kondisi jika parameter kolom pencarian diisi
+         $SqlQuery = mysqli_query($conn, "SELECT * FROM kembali WHERE  $kolomCari LIKE '%$kolomKataKunci%' ");
+       }
+     
+    
+ 
+ }
+     
+       //Hitung semua jumlah data yang berada pada tabel Sisawa
+       $JumlahData = mysqli_num_rows($SqlQuery);
+       
+       // Hitung jumlah halaman yang tersedia
+       $jumlahPage = ceil($JumlahData / $limit); 
+       
+       // Jumlah link number 
+       $jumlahNumber = 1; 
+ 
+       // Untuk awal link number
+       $startNumber = ($page > $jumlahNumber)? $page - $jumlahNumber : 1; 
+       
+       // Untuk akhir link number
+       $endNumber = ($page < ($jumlahPage - $jumlahNumber))? $page + $jumlahNumber : $jumlahPage; 
+       
+       for($i = $startNumber; $i <= $endNumber; $i++){
+         $linkActive = ($page == $i)? ' class="active page-item"' : '';
+ 
+         if($kolomCari=="" && $kolomKataKunci==""){
+     ?>
+         <li<?php echo $linkActive; ?>><a class="page-link" href="pengembalian.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+ 
+     <?php
+       }else{
+         ?>
+         <li<?php echo $linkActive; ?>><a class="page-link" href="pengembalian.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+         <?php
+       }
+     }
+     ?>
+     
+     <!-- link Next Page -->
+     <?php       
+      if($page == $jumlahPage){ 
+     ?>
+       <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+     <?php
+     }
+     else{
+       $linkNext = ($page < $jumlahPage)? $page + 1 : $jumlahPage;
+      if($kolomCari=="" && $kolomKataKunci==""){
+         ?>
+           <li class="page-item"><a class="page-link" href="pengembalian.php?page=<?php echo $linkNext; ?>">Next</a></li>
+      <?php     
+         }else{
+       ?> 
+          <li class="page-item"><a class="page-link" href="pengembalian.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $linkNext; ?>">Next</a></li>
+     <?php
+       }
+     }
+     ?>
+   </ul>
+ </div>
+
+<?php
+        } }if (!isset($_GET["KataKunci"])) {?>
+        </table>
+
+<div align="right" style="margin-bottom: 100px;">
+<ul class="pagination justify-content-center " >
+<?php
+// Jika page = 1, maka LinkPrev disable
+if($page == 1){ 
+?>        
+<!-- link Previous Page disable --> 
+<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+<?php
+}
+else{ 
+$LinkPrev = ($page > 1)? $page - 1 : 1;  
+
+if($kolomCari=="" && $kolomKataKunci==""){
+?>
+<li class="page-item"><a class="page-link" href="pengembalian.php?page=<?php echo $LinkPrev; ?>">Previous</a></li>
+<?php     
+}else{
+?> 
+<li class="page-item"><a class="page-link" href="pengembalian.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $LinkPrev;?>">Previous</a></li>
+<?php
+} 
+}
+?>
+
+<?php
+if (isset($_GET['id'])) {
+$id = $_GET['id']; // Getting parameter value inside PHP variable
+
+$SqlQuery = mysqli_query($conn,"select * from kembali where id_kembali ='$id' LIMIT " .$limitStart.",".$limit);
+} else {
+
+
+
+// Jumlah data per halaman
+
+
+if($kolomCari=="" && $kolomKataKunci==""){
+$SqlQuery = mysqli_query($conn, "SELECT * FROM kembali ");
+}else{
+//kondisi jika parameter kolom pencarian diisi
+$SqlQuery = mysqli_query($conn, "SELECT * FROM kembali WHERE  $kolomCari LIKE '%$kolomKataKunci%' ");
+}
+
+
+
+}
+
+//Hitung semua jumlah data yang berada pada tabel Sisawa
+$JumlahData = mysqli_num_rows($SqlQuery);
+
+// Hitung jumlah halaman yang tersedia
+$jumlahPage = ceil($JumlahData / $limit); 
+
+// Jumlah link number 
+$jumlahNumber = 1; 
+
+// Untuk awal link number
+$startNumber = ($page > $jumlahNumber)? $page - $jumlahNumber : 1; 
+
+// Untuk akhir link number
+$endNumber = ($page < ($jumlahPage - $jumlahNumber))? $page + $jumlahNumber : $jumlahPage; 
+
+for($i = $startNumber; $i <= $endNumber; $i++){
+$linkActive = ($page == $i)? ' class="active page-item"' : '';
+
+if(isset($_GET['id'])){if($kolomId==$id){
+?>
+<li<?php echo $linkActive; ?>><a class="page-link" href="pengembalian.php?id=<?php echo $id; ?>"><?php echo $i; ?></a></li>
+
+<?php
+} if($kolomCari=="" && $kolomKataKunci==""&& $kolomId==""){
+?>
+<li<?php echo $linkActive; ?>><a class="page-link" href="pengembalian.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+
+<?php
+}}
+else{
+?>
+<li<?php echo $linkActive; ?>><a class="page-link" href="pengembalian.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+<?php
+}
+}
+?>
+
+<!-- link Next Page -->
+<?php       
+if($page == $jumlahPage){ 
+?>
+<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+<?php
+}
+else{
+$linkNext = ($page < $jumlahPage)? $page + 1 : $jumlahPage;
+if($kolomCari=="" && $kolomKataKunci==""){
+?>
+<li class="page-item"><a class="page-link" href="pengembalian.php?page=<?php echo $linkNext; ?>">Next</a></li>
+<?php     
+}else{
+?> 
+<li class="page-item"><a class="page-link" href="pengembalian.php?Kolom=<?php echo $kolomCari;?>&KataKunci=<?php echo $kolomKataKunci;?>&page=<?php echo $linkNext; ?>">Next</a></li>
+<?php
+}
+}
+?>
+</ul>
+</div>
+<?php } ?>
     </table>
-    <div class="footer">
-        <p>made by iqbalfachry </p>
-    </div>
+    <?php include 'template/footer.php'; ?>
     <script src="script.js">
 
     </script>

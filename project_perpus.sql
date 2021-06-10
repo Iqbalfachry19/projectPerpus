@@ -57,8 +57,8 @@ CREATE TABLE `daftar_buku` (
 --
 
 INSERT INTO `daftar_buku` (`id`, `judul`, `penulis`, `penerbit`, `sampul`, `kategori`, `jumlah`) VALUES
-(3, 'Attack On Titan', 'isayama hajime', 'gramedia', '604d8d5a60570.jpg', 'komik', 1),
-(4, 'Doraemon', 'fujiko f fujio', 'gramedia', 'doraemon.jpg', 'komik', 1);
+(3, 'Attack On Titan', 'isayama hajime', 'gramedia', '60b4c0b714f78.jpg', 'komik', 1),
+(4, 'Doraemon', 'fujiko f fujio', 'gramedia', '60b4bff4e7b58.jpg', 'komik', 1);
 
 -- --------------------------------------------------------
 
