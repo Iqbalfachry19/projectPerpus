@@ -29,7 +29,7 @@ $match1  = mysqli_num_rows($cek1);
 if ($match1 > 0) {
     echo "<script>
         alert('sudah dikonfiramasi!');
-        document.location.href = 'daftar-bukua.php';
+        document.location.href = 'pengembalian.php';
     </script>";
 } 
 else{if (mysqli_multi_query($conn, $sql) > 0) {
