@@ -10,8 +10,29 @@ $idp = $_GET["idp"];
 $user = $_GET["user"];
 $denda = $_GET["denda"];
 $idb = $_GET["buku"];
-$sql = "update kembali set keterangan = 'sudah konfirmasi' where id_kembali = $id";
-if (mysqli_multi_query($conn, $sql) > 0) {
+$tglk = $_GET['tanggal'];
+$tgl = date("Y-m-d");
+$tglp = date_create($_GET["tanggal"]);
+$t = date_create(date("Y-m-d"));
+$terlambat = date_diff($tglp, $t);
+$hari = $terlambat->format("%R%a");
+
+if ($hari <= 0) {
+    $denda = 0;
+} else {
+    $denda = $denda+($hari * 200);
+}
+
+$sql = "update kembali set keterangan = 'sudah konfirmasi', denda = $denda ,tanggal_kembali = '$tgl'  where id_kembali = $id";
+$cek1 = mysqli_query($conn, "SELECT * FROM laporan WHERE id_kembali = '$id'");
+$match1  = mysqli_num_rows($cek1);
+if ($match1 > 0) {
+    echo "<script>
+        alert('sudah dikonfiramasi!');
+        document.location.href = 'daftar-bukua.php';
+    </script>";
+} 
+else{if (mysqli_multi_query($conn, $sql) > 0) {
     echo "<script>
     alert('berhasil konfirmasi');
     document.location.href = 'pengembalian.php';
@@ -57,3 +78,4 @@ if ($match > 0) {
 ";
 }
 mysqli_close($conn);
+}

@@ -138,7 +138,7 @@ if (isset($_GET['id'])) {
                 <td><?=
                     $row["keterangan"]; ?></td>
                 <td class="aksi">
-                    <a style="text-decoration: none;" class="btn btn-info" href="confirm.php?idp=<?= $row["id_pinjam"]; ?>&&id=<?= $row["id_kembali"]; ?>&&user=<?= $row["username"]; ?>&&denda=<?= $row["denda"]; ?>&&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('apa mau dikonfirmasi?');">confirm</a>
+                    <a style="text-decoration: none;" class="btn btn-info" href="confirm.php?idp=<?= $row["id_pinjam"]; ?>&&id=<?= $row["id_kembali"]; ?>&&user=<?= $row["username"]; ?>&&denda=<?= $row["denda"]; ?>&&buku=<?= $row["id_buku"]; ?>&&tanggal=<?= $row["tanggal_kembali"]; ?>" onclick="return confirm('apa mau dikonfirmasi?');">confirm</a>
                     <a style="text-decoration: none;" class="btn btn-danger" href="cancelb.php?idp=<?= $row["id_pinjam"]; ?>&&id=<?= $row["id_kembali"]; ?>&&user=<?= $row["username"]; ?>&&denda=<?= $row["denda"]; ?>&&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('apa mau dicancel?');">cancel</a>
 
                 </td>
