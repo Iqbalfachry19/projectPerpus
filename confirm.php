@@ -28,7 +28,7 @@ $cek1 = mysqli_query($conn, "SELECT * FROM laporan WHERE id_kembali = '$id'");
 $match1  = mysqli_num_rows($cek1);
 if ($match1 > 0) {
     echo "<script>
-        alert('sudah dikonfiramasi!');
+        alert('sudah dikonfirmasi!');
         document.location.href = 'pengembalian.php';
     </script>";
 } 
