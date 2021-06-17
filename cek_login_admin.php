@@ -29,8 +29,8 @@ if ($cek > 0) {
 		$_SESSION['level'] = "admin";
 		if (isset($_POST['remember'])) {
 
-			setcookie('id', $data["id"], time() + 60);
-			setcookie('key', hash('sha256', $data["username"]), time() + 60);
+			setcookie('id', $data["id"], time() + 300);
+			setcookie('key', hash('sha256', $data["username"]), time() + 300);
 		}
 		$sub_query = "
         INSERT INTO login_details 
