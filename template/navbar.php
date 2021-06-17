@@ -1,6 +1,6 @@
 
     <div class="navbar">
-    <a   href="#" style="display:flex;"> DIGITAL PERPUS</a>
+    <a   href="halaman_admin.php" style="display:flex;"> DIGITAL PERPUS</a>
 <a <?php if ($thisPage == "Halaman Admin") echo "class='active'"; ?> href="halaman_admin.php" style="display:flex;">  <img src="img/home.svg" style="margin-right:10px; align-items: center; display:flex;"  />Beranda</a>
 <a <?php if ($thisPage == "Daftar Anggota") echo "class='active'"; ?> href="daftar-anggota.php"style="display:flex;"> <img src="img/orang.svg" style="margin-right:10px; align-items: center; display:flex;"  />Daftar Anggota</a>
 <a <?php if ($thisPage == "Daftar Buku") echo "class='active'"; ?>href="daftar-buku.php"style="display:flex;"> <img src="img/book.svg" style="margin-right:10px; align-items: center; display:flex;"  />Daftar Buku</a>
