@@ -89,7 +89,7 @@ if (isset($_GET['id'])) {
                 <?php
                   $kolom=(isset($_GET['Kolom']))? $_GET['Kolom'] : "";
                 ?>
-                <option value="Judul" <?php if ($kolom=="Judul") echo "selected"; ?>>Judul</>
+                <option value="Judul" <?php if ($kolom=="Judul") echo "selected"; ?>>Judul</option>
                 <option value="Penulis" <?php if ($kolom=="Penulis") echo "selected";?>>Penulis</option>
                 <option value="Penerbit" <?php if ($kolom=="Penerbit") echo "selected";?>>Penerbit</option>
                 <option value="Kategori" <?php if ($kolom=="Kategori") echo "selected";?>>Kategori</option>
