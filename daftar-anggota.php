@@ -101,7 +101,6 @@ if (isset($_GET['id'])) {
                 ?>
                 <option value="Nama" <?php if ($kolom=="Nama") echo "selected"; ?>>Nama</>
                 <option value="Username" <?php if ($kolom=="Username") echo "selected";?>>Username</option>
-                <option value="Password" <?php if ($kolom=="Password") echo "selected";?>>Password</option>
               </select>
             </div>
             <div class="form-group">
@@ -121,7 +120,6 @@ if (isset($_GET['id'])) {
             <th>No</th>
             <th>Nama</th>
             <th>Username</th>
-            <th>Password</th>
             <th class="aksi">Aksi</th>
         </tr>
         <?php
@@ -137,8 +135,6 @@ if (isset($_GET['id'])) {
                     $row["nama"]; ?></td>
                 <td><?=
                     $row["username"]; ?></td>
-                <td><?=
-                    $row["password"]; ?></td>
 
                 <td class="aksi">
                     <a style="text-decoration: none;" class="btn btn-warning" href="ubah.php?id=<?= $row["id"]; ?>">ubah</a>
