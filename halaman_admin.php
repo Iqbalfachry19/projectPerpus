@@ -2,7 +2,16 @@
 session_start();
 require "functions.php";
 $thisPage = "Halaman Admin";
-
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+    $id = $_COOKIE['id'];
+    $key = $_COOKIE['key'];
+    $result = mysqli_query($conn, "select * from user where id= $id");
+    $row = mysqli_fetch_assoc($result);
+    if ($key === hash('sha256', $row['username'])) {
+        $_SESSION["username"] = $row['username'];
+        $_SESSION["level"] = $row['level'];
+    }
+}
 if (!isset($_SESSION['username'])) {
     header("Location:index.php");
     exit;
