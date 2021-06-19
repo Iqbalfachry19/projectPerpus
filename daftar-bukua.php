@@ -108,9 +108,9 @@ if (isset($_GET['id'])) {
   <div class="card-body">
     <h5 class="card-title">Judul: <?=
                     $row["judul"]; ?></h5>
-    <h5 class="card-title">penulis: <?=
+    <h5 class="card-title">Penulis: <?=
                     $row["penulis"]; ?></h5>
-                        <h5 class="card-title">penerbit: <?=
+                        <h5 class="card-title">Penerbit: <?=
                     $row["penerbit"]; ?></h5>
                         <h5 class="card-title">Kategori: <?=
                     $row["kategori"]; ?></h5>
@@ -127,7 +127,7 @@ if (isset($_GET['id'])) {
         endforeach;
             ?></div><?php if (isset($_GET["KataKunci"])) {
             if (mysqli_num_rows($SqlQuery) == 0) {
-                $error = "no data";
+                $error = "buku tidak ditemukan";
         ?>
         <div class="alert alert-danger"style="text-align:center" role="alert">
         <?=
