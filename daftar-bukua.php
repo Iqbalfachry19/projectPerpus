@@ -98,52 +98,42 @@ if (isset($_GET['id'])) {
       </div>
     </div>
   </div>
-    <table id="customers">
-        <tr>
-            <th>No</th>
-            <th>Sampul</th>
-            <th>Judul</th>
-            <th>Penulis</th>
-            <th>Penerbit</th>
-            <th>Kategori</th>
-            <th>Jumlah</th>
-            <th class="aksi">Aksi</th>
-        </tr>
-        <?php
-        ?>
-        <?php
+  <div style="display: flex; flex-direction:row; justify-content:space-evenly; margin-bottom:50px">
+  <?php
         foreach ($SqlQuery as $row) :
         ?>
-            <tr>
-                <td><?=
-                    $no++; ?></td>
-                <td><img src="img/<?=
-                                    $row["sampul"]; ?>" width="100px" alt=""></td>
-                <td><?=
-                    $row["judul"]; ?></td>
-                <td><?=
-                    $row["penulis"]; ?></td>
-                <td><?=
-                    $row["penerbit"]; ?></td>
-                <td><?=
-                    $row["kategori"]; ?></td>
-                <td><?=
-                    $row["jumlah"]; ?></td>
-                <td class="aksi">
-                    <a style="text-decoration: none;" class="btn btn-info" href="pinjam.php?id=<?= $row["id"]; ?>&user=<?= $user; ?>" onclick="return confirm('yakin?');">pinjam</a>
-                </td>
-            </tr>
-            <?php
-         ?>
-        <?php
+  <div class="card" style="width: 18rem;">
+  <img src="img/<?=
+                                    $row["sampul"]; ?>" class="card-img-top" width="10px" height="400px" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Judul: <?=
+                    $row["judul"]; ?></h5>
+    <h5 class="card-title">penulis: <?=
+                    $row["penulis"]; ?></h5>
+                        <h5 class="card-title">penerbit: <?=
+                    $row["penerbit"]; ?></h5>
+                        <h5 class="card-title">Kategori: <?=
+                    $row["kategori"]; ?></h5>
+                       <h5 class="card-title">Jumlah Buku: <?=
+                    $row["jumlah"]; ?></h5>
+  </div>
+  <div class="card-body" style="justify-content: space-evenly;display:flex;">
+  <a style="text-decoration: none;" class="btn btn-info" href="pinjam.php?id=<?= $row["id"]; ?>&user=<?= $user; ?>" onclick="return confirm('yakin?');">pinjam</a>
+               
+           
+  </div>
+</div>
+<?php
         endforeach;
-        ?><?php if (isset($_GET["KataKunci"])) {
+            ?></div><?php if (isset($_GET["KataKunci"])) {
             if (mysqli_num_rows($SqlQuery) == 0) {
                 $error = "no data";
-        ?></tr>
-    <td colspan='9'><?=
-                    $error; ?></td>
-    </tr>
+        ?>
+        <div class="alert alert-danger"style="text-align:center" role="alert">
+        <?=
+                    $error; ?>
+</div>
+  
 <?php } else{
      ?></table>
 
