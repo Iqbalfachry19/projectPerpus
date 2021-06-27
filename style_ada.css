@@ -100,16 +100,25 @@ body{
   overflow: hidden;
   background-color: #FF0000;
   font-family: "Times New Roman", Times, serif;
-
-
 }
-
+.container{
+  display:flex; 
+  justify-content:space-between;
+}
+@media screen and (max-width: 600px) {
+  .container{
+    display: block;
+  }
+  .navbar a {
+    display: none;
+  }
+}
 .navbar a {
   float: left;
   font-size: 20px;
   color: white;
   text-align: center;
-
+  display:flex;
   padding: 14px 16px;
   text-decoration: none;
 }

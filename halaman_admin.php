@@ -103,7 +103,7 @@ $user = $_SESSION['username'];
         </ol>
 
     </div>
-    <div class="container" style="display:flex; justify-content:space-between">
+    <div class="container" >
     <div class="info box-300" style="justify-content:space-between">
     <div style="display:flex; ">
     <img src="img/orang.svg" style="width:50px;"/>
