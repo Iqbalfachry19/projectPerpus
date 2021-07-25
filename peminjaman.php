@@ -24,7 +24,9 @@ $kolomId=(isset($_GET['id']))? $_GET['id'] : "";
 
 $kolomKataKunci=(isset($_GET['KataKunci']))? $_GET['KataKunci'] : "";
 $limit = 5;
-    
+
+
+
 $limitStart = ($page - 1) * $limit;
 $no = $limitStart + 1;
 $user = $_SESSION['username'];
@@ -131,9 +133,13 @@ if (isset($_GET['id'])) {
                 <td><?=
                     $row["kt"]; ?></td>
                 <td class="aksi">
+          
+                  <?php if($row["kt"] == 'pending'): ?>
                     <a style="text-decoration: none;" class="btn btn-info" href="pilih.php?id=<?= $row["kode_pinjam"]; ?>&&user=<?= $row["username"]; ?>&&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('apa mau dikonfirmasi?');">confirm</a>
+                    <?php else: ?>
+                   <?php endif; ?>
                     <a style="text-decoration: none;" class="btn btn-danger" href="cancel.php?id=<?= $row["kode_pinjam"]; ?>&&user=<?= $row["username"]; ?>&&buku=<?= $row["id_buku"]; ?>" onclick="return confirm('apa mau dicancel?');">cancel</a>
-
+                    </php>
                 </td>
             </tr>
         <?php
